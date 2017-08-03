@@ -1,0 +1,2 @@
+class Gemy < ApplicationRecord
+end
