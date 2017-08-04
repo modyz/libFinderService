@@ -10,24 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170803152909) do
+ActiveRecord::Schema.define(version: 20170803162749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "gemies", force: :cascade do |t|
+  create_table "dependencies", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "version_id"
+    t.index ["version_id"], name: "index_dependencies_on_version_id"
+  end
+
+  create_table "gemies", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "operating_system_id"
+    t.index ["operating_system_id"], name: "index_gemies_on_operating_system_id"
   end
 
   create_table "operating_systems", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "versions", force: :cascade do |t|
+    t.integer "version_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "gemy_id"
+    t.index ["gemy_id"], name: "index_versions_on_gemy_id"
   end
 
+  add_foreign_key "dependencies", "versions"
+  add_foreign_key "gemies", "operating_systems"
+  add_foreign_key "versions", "gemies"
 end
