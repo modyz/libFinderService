@@ -17,11 +17,18 @@ class Gemy < ApplicationRecord
 
 
 	#overriding the default as_json method
-	def as_json(options)
+	def as_json_for_gem(options)
 		{
 			name:self.name,
 			versions: self.versions,
 			dependencies: self.versions.map(&:dependencies)
+		}
+	end
+
+	def as_json(options)
+		{
+			name:self.name;
+			versions:self.versions;
 		}
 	end
 
