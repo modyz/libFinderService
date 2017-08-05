@@ -4,7 +4,8 @@ class OperatingSystem < ApplicationRecord
 
 	def as_json(options)
 		{
-			name:self.name
+			name:self.name,
+			id:self.id
 		}
 	end 
 end

@@ -21,6 +21,10 @@ class GemiesController < ApplicationController
 		found_gem = Gemy.find_by_name(get_version_params)
 	end
 
+	def get_gem
+		g = Gemy.find_by_name(params[:name])
+	end 
+
 
 
 
