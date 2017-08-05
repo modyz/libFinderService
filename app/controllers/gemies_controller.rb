@@ -2,7 +2,7 @@ class GemiesController < ApplicationController
 
 
 	def create
-		
+
 		gemy = Gemy.new(gem_params)
 		if(gemy.save)
 			render json: {message:"gem has been added succefully", gem: gemy}
@@ -25,7 +25,7 @@ class GemiesController < ApplicationController
 
 	def get_gem
 		g = Gemy.find_by_name(params[:name])
-		render json: {gem:g}
+		render json: {gem:g.as_json}
 	end
 
 
