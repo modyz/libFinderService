@@ -5,7 +5,7 @@ class Version < ApplicationRecord
     validates :version_number , presence: true
 
 
-    def as_json(options)
+    def as_json(options={})
     	{
     		version_number:self.version_number,
     		dependencies: self.dependencies

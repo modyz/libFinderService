@@ -25,7 +25,8 @@ class GemiesController < ApplicationController
 
 	def get_gem
 		g = Gemy.find_by_name(params[:name])
-		render json: {gem:g.as_json}
+		byebug
+		render json: {gem:g.as_json({})}
 	end
 
 

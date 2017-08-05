@@ -3,7 +3,7 @@ class Dependency < ApplicationRecord
 	validates :name , presence: true
 
 
-	def as_json
+	def as_json(options={})
 		{
 			name:self.name
 		}

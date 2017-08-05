@@ -25,7 +25,7 @@ class Gemy < ApplicationRecord
 		}
 	end
 
-	def as_json(options)
+	def as_json(options={})
 		{
 			name:self.name,
 			versions:self.versions
