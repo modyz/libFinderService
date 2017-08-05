@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get "/latest_gems" =>"gemies#recent_gems"
   post "/find_dependencies" => "gemies#find_dependencies"
   get "/operating_systems" => "operating_systems#index"
+  get "/recent_gems" =>"gemies#recent_gems"
 end

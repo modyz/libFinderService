@@ -14,7 +14,7 @@ class GemiesController < ApplicationController
 	end 
 
 	def recent_gems
-		latest_gems = Gemy.last(5);
+		latest_gems = Gemy.last(7);
 		render json: latest_gems
 	end
 
@@ -24,13 +24,13 @@ class GemiesController < ApplicationController
 		render json: dependencies
 	end
 
-	def get_versions
-		found_gem = Gemy.find_by_name(get_version_params)
-	end
-
 	def get_gem
 		g = Gemy.find_by_name(params[:name])
-	end 
+		render json: {gem:g}
+	end
+
+
+
 
 
 
