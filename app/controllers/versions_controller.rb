@@ -1,7 +1,8 @@
 class VersionsController < ApplicationController
 
 	def add_verison
-		gemy = Gemy.find_by_name(params[:gem_id]);
+		byebug
+		gemy = Gemy.find_by_name(params[:name]);
 		gemy.versions.create(version_params)	
 	end
 
