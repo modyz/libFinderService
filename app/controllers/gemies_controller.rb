@@ -6,7 +6,7 @@ class GemiesController < ApplicationController
 		if(gemy.save)
 			render json: {message:"gem has been added succefully"}
 		else
-			render json: {message:"error adding the gem"}
+			render json: {message:gemy.errors}
 		end
 
 
