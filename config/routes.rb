@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   post "/find_dependencies" => "gemies#find_dependencies"
   get "/operating_systems" => "operating_systems#index"
   get "/recent_gems" =>"gemies#recent_gems"
+  get "/gem" =>"gemies#get_gem"
 end
