@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get "/operating_systems" => "operating_systems#index"
   get "/recent_gems" =>"gemies#recent_gems"
   get "/gem" =>"gemies#get_gem"
+  post "/add_verison" => "versions#add_verison"
 end

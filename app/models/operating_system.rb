@@ -7,5 +7,6 @@ class OperatingSystem < ApplicationRecord
 			name:self.name,
 			id:self.id
 		}
+		
 	end 
 end
