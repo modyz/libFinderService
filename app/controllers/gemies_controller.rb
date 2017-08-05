@@ -3,7 +3,13 @@ class GemiesController < ApplicationController
 
 	def create
 		gemy = Gemy.new(gem_params)
-		gemy.save
+		if(gemy.save)
+			render json: {message:"gem has been added succefully"}
+		else
+			render json: {message:"error adding the gem"}
+		end
+
+
 	end 
 
 	def recent_gems

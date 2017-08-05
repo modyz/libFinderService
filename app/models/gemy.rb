@@ -2,6 +2,7 @@ class Gemy < ApplicationRecord
 	has_many :versions
 	belongs_to :operating_system
 	accepts_nested_attributes_for :versions
+	validates :name , presence: true , uniqueness: true
 
 
 	def self.get_dependencies(gems)
