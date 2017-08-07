@@ -19,7 +19,7 @@ class GemiesController < ApplicationController
 
 
 	def find_dependencies
-		dependencies = Gemy.get_dependencies(find_dependencies_params)
+		dependencies = Gemy.get_dependencies(params)
 		render json: dependencies
 	end
 
@@ -41,7 +41,7 @@ class GemiesController < ApplicationController
 		end 
 
 		def find_dependencies_params
-			params.require(:gems).permit(:name,:operating_system_id,:version)
+			params.require(:gems).permit(:name,:version)
 		end 
 
 		def get_version_params

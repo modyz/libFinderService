@@ -6,8 +6,8 @@ class Gemy < ApplicationRecord
 
 
 	def self.get_dependencies(gems)
-		gemies = Gemy.where(name:gems.map{|g| g[:name]})
-		versions = Version.where(id:gemies.map(&:id),version_number:gems.map{|g| g[:version]})
+		gemies = Gemy.where(name:gems[:gems].map{|g| g[:name]},operating_system_id:gems[:os_id])
+		versions = Version.where(gemy_id:gemies.map(&:id),version_number:gems[:gems].map{|g| g[:version]})
 		dependencies = Dependency.where(version_id:versions.map(&:id))
 		return dependencies
 	end 
